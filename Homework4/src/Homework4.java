@@ -13,6 +13,7 @@ public class Homework4 {
             System.out.println("1: For Sum of Numbers");
             System.out.println("2: For Pennies for Pay");
             System.out.println("3: For Celsius to Fahrenheit table");
+            System.out.println("4: Quit");
             System.out.print("Enter Choice: ");
             ans = in.nextInt();
             if (ans == 1)
@@ -41,7 +42,26 @@ public class Homework4 {
     }
 
     private static void pay() {
-
+        double hold = 0;
+        double prev = .01;
+        int ans = 0;
+        do {
+            System.out.print("How many days did you work: ");
+            try {
+                ans = in.nextInt();
+            } catch (Exception e) {
+                System.out.println("try again");
+            }
+        } while (ans < 1);
+        for (int i = 0; i < ans; i++) {
+            hold += prev;
+            System.out.print("Day "+ (i+1)+": ");
+            System.out.printf("$%.2f\n",prev);
+            prev = prev * 2;
+        }
+        System.out.println("_____");
+        System.out.print("Total pay: ");
+        System.out.printf("$%.2f\n",hold);
     }
 
     private static void nums() {
